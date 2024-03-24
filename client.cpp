@@ -7,8 +7,11 @@
 #include <limits>
 
 #include "./headers/ServerClient.h"
+#include "./headers/utils/QueryUtils.h"
 
 int main() {
+    QueryUtils queryUtils;
+
     int port;
 
     std::cout << "Enter the port: ";
@@ -16,12 +19,16 @@ int main() {
 
     while (true) {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        std::string query;
+
+        std::cout << queryUtils.availableFormats() << std::endl;
         
         std::cout << "Enter the query: ";
         std::getline(std::cin, query);
 
         
-        ServerClient client("127.0.0.1", serverPort);
+        ServerClient client("127.0.0.1", port);
         std::string response = client.sendQuery(query);
 
         std::cout << "Response from server: " << response << std::endl;

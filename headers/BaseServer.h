@@ -10,7 +10,6 @@
 #include <cctype>
 #include <locale>
 #include <fcntl.h>
-#include <vector>
 
 #include "SharedMemoryManager.h"
 #include "ServerClient.h"
@@ -43,8 +42,11 @@ std::string handleQuery(const std::string& query, int port) {
     SharedMemoryManager sharedMemoryManager;
 
     if(parsedQuery->isGetAllInServer) {
+        std::string results = databaseUtils.findOneInServer(port, "");
         sharedMemoryManager.startSharedMemory();
-        sharedMemoryManager.addToSharedMemory(databaseUtils.findOneInServer(port, ""));
+        sharedMemoryManager.addToSharedMemory(results);
+
+        return results;
     }
 
     if (parsedQuery->isGetAllInAllServers) {
