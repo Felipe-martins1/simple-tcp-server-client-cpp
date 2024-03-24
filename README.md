@@ -2,6 +2,12 @@
 
 This is a simple TCP server-client implementation in C++. It demonstrates how to establish a TCP connection between a server and a client, and exchange messages over the network.
 
+The project involves the operation of three servers, primarily focusing on two main operations: findAll and findOne.
+
+In the findAll operation, the server is tasked with searching for all information across the three servers and storing it in shared memory. Access to this shared memory is restricted through the implementation of a semaphore.
+
+On the other hand, the findOne operation involves searching for a specific piece of data on one of the three servers using pipes.
+
 ## Prerequisites
 
 Before running the code, make sure you have the following:
