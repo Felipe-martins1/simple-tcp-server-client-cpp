@@ -50,7 +50,19 @@ Before running the code, make sure you have the following:
     ./client
     ```
 
-5. Follow the prompts in the client program to send and receive messages.
+5. Types of query:
+     ```shell
+    GET <name> // Search in the current server (the port you choose to connect in the client).
+
+    GET * // Return all data in the current server.
+
+    GET ** // Return all data in all servers.
+
+    GETALL <name> // Search in all servers.
+    ```
+
+6. Follow the prompts in the client program to send and receive messages.
+
 
 ## Contributing
 
